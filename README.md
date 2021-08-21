@@ -196,7 +196,7 @@ Just run the Vivado design => export platform => petalinux-build => petalinux-bu
 > Too many words? Don't worry because I already made a patch for it! Have fun with it.
 
 ### Reference sources
-[Bug report on DRM CRTC DMA engine drive](https://forums.xilinx.com/t5/Video-and-Audio/Bug-report-on-DRM-CRTC-DMA-engine-driver/td-p/1141378)
-[Zybo HDMI output: Wrong colors rendering on Linux](https://forums.xilinx.com/t5/Video-and-Audio/Zybo-HDMI-output-Wrong-colors-rendering-on-Linux/td-p/950612)
-[ZYNQ7000 #1-Linux interface display under PL end analog HDMI signal output environment](https://www.programmersought.com/article/92266162600/)
+[Bug report on DRM CRTC DMA engine drive](https://forums.xilinx.com/t5/Video-and-Audio/Bug-report-on-DRM-CRTC-DMA-engine-driver/td-p/1141378)  
+[Zybo HDMI output: Wrong colors rendering on Linux](https://forums.xilinx.com/t5/Video-and-Audio/Zybo-HDMI-output-Wrong-colors-rendering-on-Linux/td-p/950612)  
+[ZYNQ7000 #1-Linux interface display under PL end analog HDMI signal output environment](https://www.programmersought.com/article/92266162600/)  
 
