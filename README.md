@@ -25,7 +25,7 @@ Just run the Vivado design => export platform => petalinux-build => petalinux-bu
 
 ### Setup guide for pynqz1-dev aka PYNQZ1 Embedded
 1. Run ```git clone https://github.com/Digilent/vivado-library.git```
-2. Open Vivado and source the *pynqz1-dev.tcl* file to create the project (```source ./pynqz1-dev.tcl```), the block diagram will not be create so you have to manually add the vivado-library repository to the project, then re-run the ```source ./pynqz1-dev.tcl``` in Vivado console, the block design then created.
+2. Open Vivado and source the *pynqz1-dev.tcl* file to create the project (```source ./pynqz1-dev.tcl```), the block diagram will not be create so you have to manually add the vivado-library repository to the project, then re-run the ```source ./pynqz1-dev.tcl``` in Vivado console, the block design then created. all the button/switch/LED (btns_4bits, sws_2bits...) must be manually re-added again.
 3. Setup soft framebuffer device driver
 	1. Put this in **linux-xlnx/drivers/video/fbdev/Kconfig**
     	```
