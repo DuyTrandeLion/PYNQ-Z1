@@ -25,7 +25,7 @@ Just run the Vivado design => export platform => petalinux-build => petalinux-bu
 
 ### Setup guide for pynqz1-dev aka PYNQZ1 Embedded
 1. Run ```git clone https://github.com/Digilent/vivado-library.git```
-2. Open Vivado and source the *pynqz1-dev.tcl* file to create the project (```source ./pynqz1-dev.tcl```), the block diagram will not be create so you have to manually add the vivado-library repository to the project, then re-run the ```source ./pynqz1-dev.tcl``` in Vivado console, the block design then created. all the button/switch/LED (btns_4bits, sws_2bits...) must be manually re-added again.
+2. Open Vivado and source the *pynqz1-dev.tcl* file to create the project (```source ./pynqz1-dev.tcl```), the block diagram will not be create so you have to manually add the vivado-library repository to the project, then re-run the ```source ./pynqz1-dev.tcl``` in Vivado console, the block design then created.
 3. Setup soft framebuffer device driver
 	1. Put this in **linux-xlnx/drivers/video/fbdev/Kconfig**
     	```
@@ -97,7 +97,6 @@ Just run the Vivado design => export platform => petalinux-build => petalinux-bu
     	config COMMON_CLK_DGLNT_DYNCLK
     		tristate "Digilent axi_dynclk Driver"
     		depends on ARCH_ZYNQ || MICROBLAZE
-    		help
     		---help---
     		  Support for the Digilent AXI Dynamic Clock core for Xilinx
     		  FPGAs.
@@ -191,7 +190,7 @@ Just run the Vivado design => export platform => petalinux-build => petalinux-bu
 
 > **Note:** All the source files are in project-spec/meta-user/recipes-modules. Can be built as KLM or if you want to build as built-in kernel drivers, follow below guide. By default, all 3 KLM are not enabled so you need to enable in rootfs by running ```petalinux-config -c rootfs```
 
-> **Limitations:** digilent encoder and soft framebuffer should be used as KLM while digilent-dynclk can be used either KLM or kernel built-in driver.
+> **Limitations:** In case you use vdmafb, it should be used as KLM while clk-dglnt-dynclk and digilent_encoder can be used either KLM or kernel built-in driver. For the latest update, framebuffer emulation is supported by a Linux legacy driver so vdmafb is retired.
 
 > Too many words? Don't worry because I already made a patch for it! Have fun with it.
 
