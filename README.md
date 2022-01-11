@@ -190,6 +190,8 @@ Just run the Vivado design => export platform => petalinux-build => petalinux-bu
 
 > **Note:** All the source files are in project-spec/meta-user/recipes-modules. Can be built as KLM or if you want to build as built-in kernel drivers, follow below guide. By default, all 3 KLM are not enabled so you need to enable in rootfs by running ```petalinux-config -c rootfs```
 
+> **Autobuild scripts:** Thanks to [Martin Mueller](https://github.com/millertheripper), you can run the whole build process with ```make```. Please follow this repository: [arty-z7-20_linux_desktop](https://github.com/millertheripper/arty-z7-20_linux_desktop).
+
 > **Limitations:** In case you use vdmafb, it should be used as KLM while clk-dglnt-dynclk and digilent_encoder can be used either KLM or kernel built-in driver. For the latest update, framebuffer emulation is supported by a Linux legacy driver so vdmafb is retired.
 
 > Too many words? Don't worry because I already made a patch for it! Have fun with it.
