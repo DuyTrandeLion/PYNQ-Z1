@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2020.2
+set scripts_vivado_version 2022.1
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -35,7 +35,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 ################################################################
 
 # To test this script, run the following commands from Vivado Tcl console:
-# source pynqz1_dev.tcl
+# source pynqz1-dev.tcl
 
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
@@ -772,35 +772,15 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_MIO_9_IOTYPE {LVCMOS 3.3V} \
    CONFIG.PCW_MIO_9_PULLUP {enabled} \
    CONFIG.PCW_MIO_9_SLEW {slow} \
-   CONFIG.PCW_MIO_TREE_PERIPHERALS { \
-     0#Enet 0 \
-     0#Enet 0 \
-     0#Enet 0 \
-     0#Enet 0 \
-     0#Enet 0 \
-     0#Enet 0 \
-     0#Enet 0 \
-     0#SD 0#USB \
-     0#SD 0#USB \
-     0#SD 0#USB \
-     0#UART 0#Enet \
-     0#USB 0#SD \
-     0#USB 0#SD \
-     0#USB 0#SD \
-     0#USB 0#SD \
-     0#USB 0#SD \
-     0#USB 0#SD \
-     Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#UART \
-     Flash#GPIO#Quad SPI \
-     Flash#Quad SPI \
-     Flash#Quad SPI \
-     Flash#Quad SPI \
-     Flash#Quad SPI \
-     Flash#Quad SPI \
-     GPIO#Quad SPI \
-     Reset#SD 0#GPIO#GPIO#GPIO#GPIO#Enet \
-   } \
-   CONFIG.PCW_MIO_TREE_SIGNALS {gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#rx#tx#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#gpio[48]#gpio[49]#gpio[50]#gpio[51]#mdc#mdio} \
+   CONFIG.PCW_MIO_TREE_PERIPHERALS {\
+GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI\
+Flash#Quad SPI Flash#GPIO#Quad SPI Flash#ENET Reset#GPIO#GPIO#GPIO#GPIO#UART\
+0#UART 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet\
+0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB\
+0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#USB Reset#SD 0#GPIO#GPIO#GPIO#GPIO#Enet\
+0#Enet 0} \
+   CONFIG.PCW_MIO_TREE_SIGNALS {\
+gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#qspi_fbclk#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#rx#tx#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#reset#cd#gpio[48]#gpio[49]#gpio[50]#gpio[51]#mdc#mdio} \
    CONFIG.PCW_NAND_GRP_D8_ENABLE {0} \
    CONFIG.PCW_NAND_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_NOR_GRP_A25_ENABLE {0} \
@@ -917,18 +897,18 @@ proc create_root_design { parentCell } {
   # Create instance: v_tc_0, and set properties
   set v_tc_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:v_tc:6.2 v_tc_0 ]
   set_property -dict [ list \
-   CONFIG.GEN_F0_VBLANK_HEND {960} \
-   CONFIG.GEN_F0_VBLANK_HSTART {960} \
+   CONFIG.GEN_F0_VBLANK_HEND {2008} \
+   CONFIG.GEN_F0_VBLANK_HSTART {2008} \
    CONFIG.GEN_F0_VFRAME_SIZE {1125} \
-   CONFIG.GEN_F0_VSYNC_HEND {1004} \
-   CONFIG.GEN_F0_VSYNC_HSTART {1004} \
+   CONFIG.GEN_F0_VSYNC_HEND {2008} \
+   CONFIG.GEN_F0_VSYNC_HSTART {2008} \
    CONFIG.GEN_F0_VSYNC_VEND {1088} \
    CONFIG.GEN_F0_VSYNC_VSTART {1083} \
-   CONFIG.GEN_F1_VBLANK_HEND {960} \
-   CONFIG.GEN_F1_VBLANK_HSTART {960} \
+   CONFIG.GEN_F1_VBLANK_HEND {2008} \
+   CONFIG.GEN_F1_VBLANK_HSTART {2008} \
    CONFIG.GEN_F1_VFRAME_SIZE {1125} \
-   CONFIG.GEN_F1_VSYNC_HEND {1004} \
-   CONFIG.GEN_F1_VSYNC_HSTART {1004} \
+   CONFIG.GEN_F1_VSYNC_HEND {2008} \
+   CONFIG.GEN_F1_VSYNC_HSTART {2008} \
    CONFIG.GEN_F1_VSYNC_VEND {1088} \
    CONFIG.GEN_F1_VSYNC_VSTART {1083} \
    CONFIG.GEN_HACTIVE_SIZE {1920} \
@@ -1069,7 +1049,6 @@ proc create_root_design { parentCell } {
   current_bd_instance $oldCurInst
 
   # Create PFM attributes
-  set_property PFM.AXI_PORT {M05_AXI {memport "M_AXI_GP" sptag "" memory "" is_range "false"}} [get_bd_cells /ps7_0_axi_periph]
   set_property PFM.IRQ {In0 {is_range "true"} In1 {is_range "true"} In2 {is_range "true"} In3 {is_range "true"} In4 {is_range "true"} In5 {is_range "true"} In6 {is_range "true"} In7 {is_range "true"}} [get_bd_cells /xlconcat_0]
 
 
